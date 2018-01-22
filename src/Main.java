@@ -30,10 +30,22 @@ public class Main {
         }
         System.out.println(countPerfect + " student(s) had perfect attendance.");
 
+        // Calculate average of absences
+        double avg = average(absences);
+        System.out.print("the average number of absences is " + avg);
 
+    }
 
-        
+    private static double average(ArrayList<Integer> absences) {
+        return (double)sum(absences)/absences.size();
 
+    }
 
+    private static int sum(ArrayList<Integer> absences) {
+        int sum = 0;
+        for (int i = 0; i <absences.size() ; i++) {
+            sum +=absences.get(i);
+        }
+        return sum;
     }
 }
