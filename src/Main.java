@@ -21,6 +21,19 @@ public class Main {
         }
         System.out.println("The elements are " + absences);
 
+        // Number of students with perfect attendance
+        int countPerfect = 0;
+        for (int i = 0; i < name.length() ; i++) {
+            if (absences.get(i) == 0) {
+                countPerfect++;
+            }
+        }
+        System.out.println(countPerfect + " student(s) had perfect attendance.");
+
+
+
+        
+
 
     }
 }
