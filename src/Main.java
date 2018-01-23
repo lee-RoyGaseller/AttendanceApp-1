@@ -24,7 +24,7 @@ public class Main {
         // Number of students with perfect attendance
         int countPerfect = 0;
         for (int i = 0; i < name.length() ; i++) {
-            if (absences.get(i) == 0) {
+            if (absences.get(i)== 0) {
                 countPerfect++;
             }
         }
