@@ -23,7 +23,7 @@ public class Main {
 
         // Number of students with perfect attendance
         int countPerfect = 0;
-        for (int i = 0; i < name.length() ; i++) {
+        for (int i = 0; i < absences.size() ; i++) {
             if (absences.get(i)== 0) {
                 countPerfect++;
             }
@@ -32,13 +32,26 @@ public class Main {
 
         // Calculate average of absences
         double avg = average(absences);
-        System.out.print("the average number of absences is " + avg);
+        System.out.println("the average number of absences is " + avg);
 
+        // percent of students who had less than three absences with perfect attendance
+        double percentOfPerfectLessThanThree = percentOf(perfectAttendance(absences), fewerThanBlankAbsences(absences,3));
+        int fewerThanThreeAbsences = fewerThanBlankAbsences(absences,3);
+        int perfectAttendance = perfectAttendance(absences);
+        System.out.println("fewerThanThree = "+ fewerThanThreeAbsences);
+        System.out.println("the percent of students who had less than three absences with perfect attendance is " + percentOfPerfectLessThanThree + "%");
+
+
+    }
+
+    private static double percentOf(int part, int total){
+        double percentage = 0;
+        percentage =((double)part*100)/(double)total;
+        return percentage;
     }
 
     private static double average(ArrayList<Integer> absences) {
         return (double)sum(absences)/absences.size();
-
     }
 
     private static int sum(ArrayList<Integer> absences) {
@@ -48,4 +61,26 @@ public class Main {
         }
         return sum;
     }
+
+    private static int perfectAttendance(ArrayList<Integer> absences){
+        int countPerfect = 0;
+        for (int i = 0; i < absences.size() ; i++) {
+            if (absences.get(i)== 0) {
+                countPerfect++;
+            }
+        }
+        return countPerfect;
+    }
+
+    private static int fewerThanBlankAbsences(ArrayList<Integer> absences, int numOfAbsences) {
+        int fewerThan = 0;
+        for (int i = 0; i < absences.size() ; i++) {
+            if (absences.get(i) < numOfAbsences){
+                fewerThan++;
+            }
+
+        }
+        return fewerThan;
+    }
+
 }
