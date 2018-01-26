@@ -41,7 +41,22 @@ public class Main {
         System.out.println("fewerThanThree = "+ fewerThanThreeAbsences);
         System.out.println("the percent of students who had less than three absences with perfect attendance is " + percentOfPerfectLessThanThree + "%");
 
+        // Which students had [X] absences?
+        int numOfSpec =numOfSpecifiedAbsences(4, absences);
+        System.out.println("the number of students who had 4 " + numOfSpec);
 
+
+    }
+
+
+    private static int numOfSpecifiedAbsences(int specifiedAbsenceNum, ArrayList<Integer> absences){
+        int numOfSpec = 0;
+        for (int i = 0; i < absences.size(); i++) {
+            if (absences.get(i) == specifiedAbsenceNum) {
+                numOfSpec++;
+            }
+        }
+        return numOfSpec;
     }
 
     private static double percentOf(int part, int total){
