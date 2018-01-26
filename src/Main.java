@@ -44,8 +44,8 @@ public class Main {
         // Which students had [X] absences?
         System.out.print("what specified absence do you want?: ");
         int specifiedAbsences = sc.nextInt();
-        int numOfSpec =numOfSpecifiedAbsences(specifiedAbsences, absences);
-        System.out.println("the number of students who had " + specifiedAbsences +" absences: " + numOfSpec);
+        ArrayList<Integer> studentsWhoMissed =numOfSpecifiedAbsences(specifiedAbsences, absences);
+        System.out.println("the students who had " + specifiedAbsences +" absences were: " + studentsWhoMissed);
 
         // Which and what percentage of the students have FE'd the course?
         System.out.print("how many times does your class meet per week?: ");
@@ -59,21 +59,22 @@ public class Main {
 
         }
         double percentOfFedStudents = percentOf(missedTwoMoreThanTheNumOfMeetsPerWeek,absences.size());
-        System.out.println("the percent of fe'd students is " + percentOfFedStudents);
+        System.out.printf("the percent of fe'd students is %.2f%%", percentOfFedStudents);
+
 
 
 
     }
 
 
-    private static int numOfSpecifiedAbsences(int specifiedAbsenceNum, ArrayList<Integer> absences){
-        int numOfSpec = 0;
+    private static ArrayList<Integer> numOfSpecifiedAbsences(int specifiedAbsenceNum, ArrayList<Integer> absences){
+        ArrayList<Integer> studentsWhoMissed = new ArrayList<>();
         for (int i = 0; i < absences.size(); i++) {
             if (absences.get(i) == specifiedAbsenceNum) {
-                numOfSpec++;
+                studentsWhoMissed.add(i);
             }
         }
-        return numOfSpec;
+        return studentsWhoMissed;
     }
 
     private static double percentOf(int part, int total){
