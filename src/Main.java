@@ -42,8 +42,25 @@ public class Main {
         System.out.println("the percent of students who had less than three absences with perfect attendance is " + percentOfPerfectLessThanThree + "%");
 
         // Which students had [X] absences?
-        int numOfSpec =numOfSpecifiedAbsences(4, absences);
-        System.out.println("the number of students who had 4 " + numOfSpec);
+        System.out.print("what specified absence do you want?: ");
+        int specifiedAbsences = sc.nextInt();
+        int numOfSpec =numOfSpecifiedAbsences(specifiedAbsences, absences);
+        System.out.println("the number of students who had " + specifiedAbsences +" absences: " + numOfSpec);
+
+        // Which and what percentage of the students have FE'd the course?
+        System.out.print("how many times does your class meet per week?: ");
+        int numOfMeetsPerWeek =sc.nextInt();
+        int missedTwoMoreThanTheNumOfMeetsPerWeek =0;
+
+        for (int i = 0; i <absences.size() ; i++) {
+            if(absences.get(i) >= numOfMeetsPerWeek+2){
+                missedTwoMoreThanTheNumOfMeetsPerWeek++;
+            }
+
+        }
+        double percentOfFedStudents = percentOf(missedTwoMoreThanTheNumOfMeetsPerWeek,absences.size());
+        System.out.println("the percent of fe'd students is " + percentOfFedStudents);
+
 
 
     }
