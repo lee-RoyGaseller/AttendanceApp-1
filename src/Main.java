@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -64,7 +65,20 @@ public class Main {
         //Add [X] to any absences greater than [Y].
         System.out.println("The absences are "+ absences);
         addNumToelementGreaterThan(absences,2,3);
-        System.out.println("The modified absences are "+ absences);
+        System.out.println("The modified absences are "+ absences +"\n");
+
+        //Sort the absences using a library function.
+        System.out.println("The unsorted absences are "+ absences);
+        Collections.sort(absences);
+        System.out.println("The sorted absences are "+ absences);
+
+        //Shuffle the absences using a library function.
+        //System.out.println("The unshuffled absences are "+ absences);
+        //Collections.shuffle(absences);
+        //System.out.println("The shuffled absences are "+ absences);
+
+
+
 
 
 
