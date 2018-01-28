@@ -59,11 +59,27 @@ public class Main {
 
         }
         double percentOfFedStudents = percentOf(missedTwoMoreThanTheNumOfMeetsPerWeek,absences.size());
-        System.out.printf("the percent of fe'd students is %.2f%%", percentOfFedStudents);
+        System.out.printf("the percent of fe'd students is %.2f%%\n", percentOfFedStudents);
+
+        //Add [X] to any absences greater than [Y].
+        System.out.println("The absences are "+ absences);
+        addNumToelementGreaterThan(absences,2,3);
+        System.out.println("The modified absences are "+ absences);
 
 
 
 
+
+
+    }
+
+    private static void addNumToelementGreaterThan(ArrayList<Integer> absences, int addAmount, int greaterThan){
+        for (int i = 0; i < absences.size(); i++) {
+            if(absences.get(i) > greaterThan){
+                absences.set(i,absences.get(i)+addAmount);
+            }
+
+        }
     }
 
 
