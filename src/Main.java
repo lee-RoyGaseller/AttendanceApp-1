@@ -73,9 +73,9 @@ public class Main {
         System.out.println("The sorted absences are "+ absences);
 
         //Shuffle the absences using a library function.
-        //System.out.println("The unshuffled absences are "+ absences);
-        //Collections.shuffle(absences);
-        //System.out.println("The shuffled absences are "+ absences);
+        System.out.println("The unshuffled absences are "+ absences);
+        Collections.shuffle(absences);
+        System.out.println("The shuffled absences are "+ absences);
 
 
 
