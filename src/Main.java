@@ -77,6 +77,15 @@ public class Main {
         Collections.shuffle(absences);
         System.out.println("The shuffled absences are "+ absences);
 
+        //How many absences are unique?
+        //int uniqueAbsences = uniqueAbsences(absences);
+        //System.out.println("The number of unique absences are " + uniqueAbsences);
+
+        //How many of each absence value are there?
+
+        //Sort the absences using a user-defined sort function.
+        Sort(absences);
+        System.out.println("the shuffled absences using my own shuffle function " + absences);
 
 
 
@@ -85,6 +94,39 @@ public class Main {
 
 
 
+
+
+
+
+
+    }
+
+    private static void Sort(ArrayList<Integer> absences){
+        for (int i = 0; i <absences.size() ; i++) {
+            for (int j = 0; j <absences.size() ; j++) {
+                if(absences.get(i) < absences.get(j)){
+                    int temp = absences.get(i);
+                    absences.set(i,absences.get(j));
+                    absences.set(j,temp);
+                }
+
+            }
+
+        }
+    }
+
+    private static int uniqueAbsences(ArrayList<Integer> abscences){
+        int uniqueAbscences = 0;
+        for (int i = 0; i <abscences.size() ; i++) {
+            for (int j = 0; j < abscences.size() ; j++) {
+                if(abscences.get(i) == abscences.get(j)){
+                    uniqueAbscences++;
+                }
+
+            }
+
+        }
+        return uniqueAbscences;
     }
 
     private static void addNumToelementGreaterThan(ArrayList<Integer> absences, int addAmount, int greaterThan){
