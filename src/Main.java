@@ -1,7 +1,4 @@
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Random;
-import java.util.Scanner;
+import java.util.*;
 
 public class Main {
 
@@ -78,8 +75,8 @@ public class Main {
         System.out.println("The shuffled absences are "+ absences);
 
         //How many absences are unique?
-        //int uniqueAbsences = uniqueAbsences(absences);
-        //System.out.println("The number of unique absences are " + uniqueAbsences);
+        int uniqueAbsences = uniqueAbsences(absences);
+        System.out.println("The number of unique absences are " + uniqueAbsences);
 
         //How many of each absence value are there?
 
@@ -101,6 +98,16 @@ public class Main {
 
     }
 
+    private static int uniqueAbsences(ArrayList<Integer> absences) {
+        Set<Integer> uniques = new HashSet<>();
+        for (int i = 0; i <absences.size() ; i++) {
+            uniques.add(absences.get(i));
+
+
+        }
+        return uniques.size();
+    }
+
     private static void Sort(ArrayList<Integer> absences){
         for (int i = 0; i <absences.size() ; i++) {
             for (int j = 0; j <absences.size() ; j++) {
@@ -115,19 +122,6 @@ public class Main {
         }
     }
 
-    private static int uniqueAbsences(ArrayList<Integer> abscences){
-        int uniqueAbscences = 0;
-        for (int i = 0; i <abscences.size() ; i++) {
-            for (int j = 0; j < abscences.size() ; j++) {
-                if(abscences.get(i) == abscences.get(j)){
-                    uniqueAbscences++;
-                }
-
-            }
-
-        }
-        return uniqueAbscences;
-    }
 
     private static void addNumToelementGreaterThan(ArrayList<Integer> absences, int addAmount, int greaterThan){
         for (int i = 0; i < absences.size(); i++) {
