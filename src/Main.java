@@ -79,7 +79,10 @@ public class Main {
         System.out.println("The number of unique absences are " + uniqueAbsences);
 
         //How many of each absence value are there?
+        System.out.print("how many of each value?: ");howManyOfEach(absences);
 
+
+        System.out.println();
         //Sort the absences using a user-defined sort function.
         Sort(absences);
         System.out.println("the shuffled absences using my own shuffle function " + absences);
@@ -96,6 +99,21 @@ public class Main {
 
 
 
+
+
+
+
+    }
+
+    private static void howManyOfEach(ArrayList<Integer> absences) {
+        for (int i = 0; i < absences.size() ; i++) {
+            System.out.print(absences.get(i) +" ");
+            for (int j = 0; j <absences.size() ; j++) {
+                if (absences.get(j) == absences.get(i)){
+                    System.out.print("*");
+                }
+            }
+        }
     }
 
     private static int uniqueAbsences(ArrayList<Integer> absences) {
