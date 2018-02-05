@@ -85,7 +85,19 @@ public class Main {
         System.out.println();
         //Sort the absences using a user-defined sort function.
         Sort(absences);
-        System.out.println("the shuffled absences using my own shuffle function " + absences);
+        System.out.println("the sorted absences using my own shuffle function " + absences);
+
+        //Shuffle the absences using a user-defined shuffle() function.
+
+
+        //Create and output an ArrayList of 5 distinct names.
+        ArrayList<String> names = new ArrayList<>();
+        names.add("Lee-Roy");
+        names.add("Jacob");
+        names.add("Chris");
+        names.add("Bobby");
+        names.add("Brown");
+        System.out.println(names);
 
 
 
