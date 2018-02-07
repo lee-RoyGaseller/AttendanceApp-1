@@ -87,6 +87,7 @@ public class Main {
         Sort(absences);
         System.out.println("the sorted absences using my own shuffle function " + absences);
 
+
         //Shuffle the absences using a user-defined shuffle() function.
 
 
@@ -115,16 +116,21 @@ public class Main {
 
 
 
+
+
+
+
     }
 
     private static void howManyOfEach(ArrayList<Integer> absences) {
         for (int i = 0; i < absences.size() ; i++) {
-            System.out.print(absences.get(i) +" ");
+            System.out.printf("%2d " ,absences.get(i));
             for (int j = 0; j <absences.size() ; j++) {
                 if (absences.get(j) == absences.get(i)){
                     System.out.print("*");
                 }
             }
+            System.out.println();
         }
     }
 
