@@ -61,7 +61,7 @@ public class Main {
 
         //Add [X] to any absences greater than [Y].
         System.out.println("The absences are "+ absences);
-        addNumToelementGreaterThan(absences,2,3);
+        addNumToElementGreaterThan(absences,2,3);
         System.out.println("The modified absences are "+ absences +"\n");
 
         //Sort the absences using a library function.
@@ -121,6 +121,8 @@ public class Main {
             anotherList.add(names.get(randName));
         }
         System.out.println("new list: " + anotherList);
+
+        //
 
 
 
@@ -193,12 +195,18 @@ public class Main {
     }
 
 
-    private static void addNumToelementGreaterThan(ArrayList<Integer> absences, int addAmount, int greaterThan){
+    private static void addNumToElementGreaterThan(ArrayList<Integer> absences, int addAmount, int greaterThan){
         for (int i = 0; i < absences.size(); i++) {
             if(absences.get(i) > greaterThan){
                 absences.set(i,absences.get(i)+addAmount);
             }
-
+            if(absences.get(i) <0){
+                absences.set(i, 0);
+            }
+            if (absences.get(i) >15)
+            {
+                absences.set(i, 15);
+            }
         }
     }
 
