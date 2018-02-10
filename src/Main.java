@@ -79,7 +79,17 @@ public class Main {
         System.out.println("The number of unique absences are " + uniqueAbsences);
 
         //How many of each absence value are there?
-        System.out.print("how many of each value?: ");howManyOfEach(absences);
+        Map<Integer, Integer>eachAbsenceMap = new HashMap<>();
+        for (int key: absences) {
+            if (!eachAbsenceMap.containsKey(key)) {
+                eachAbsenceMap.put(key, 1);
+            } else {
+                int value = eachAbsenceMap.get(key) +1;
+                eachAbsenceMap.put(key, value);
+            }
+        }
+        System.out.println("Each absence map: "+ eachAbsenceMap);
+
 
 
         System.out.println();
@@ -89,6 +99,7 @@ public class Main {
 
 
         //Shuffle the absences using a user-defined shuffle() function.
+
 
 
         //Create and output an ArrayList of 5 distinct names.
@@ -142,6 +153,13 @@ public class Main {
 
         }
         return uniques.size();
+    }
+
+    public static void Shuffle( int size, ArrayList<Integer> absences){
+        Random rand = new Random();
+        for (int i = 0; i < size ; i++) {
+
+        }
     }
 
     private static void Sort(ArrayList<Integer> absences){
