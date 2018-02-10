@@ -98,7 +98,7 @@ public class Main {
         System.out.println("the sorted absences using my own sort function " + absences);
 
 
-        //Shuffle the absences using a user-defined shuffle() function.
+        //Shuffle the absences using a user-defined shuffle() function
         shuffle(absences);
         System.out.println("the shuffled absences using my own shuffle function");
 
