@@ -95,10 +95,12 @@ public class Main {
         System.out.println();
         //Sort the absences using a user-defined sort function.
         Sort(absences);
-        System.out.println("the sorted absences using my own shuffle function " + absences);
+        System.out.println("the sorted absences using my own sort function " + absences);
 
 
         //Shuffle the absences using a user-defined shuffle() function.
+        shuffle(absences);
+        System.out.println("the shuffled absences using my own shuffle function");
 
 
 
@@ -155,9 +157,13 @@ public class Main {
         return uniques.size();
     }
 
-    public static void Shuffle( int size, ArrayList<Integer> absences){
+    public static void shuffle( ArrayList<Integer> absences){
         Random rand = new Random();
-        for (int i = 0; i < size ; i++) {
+        for (int i = 0; i < absences.size() ; i++) {
+            int randInt = rand.nextInt(absences.size());
+            int temp = absences.get(randInt);
+            absences.set(randInt, absences.get(i));
+            absences.set(i, temp);
 
         }
     }
