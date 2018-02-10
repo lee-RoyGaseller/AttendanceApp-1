@@ -114,19 +114,17 @@ public class Main {
         System.out.println(names);
 
         //Using the 5 names, create another list that has the same size as the absences list.
-        ArrayList<String> anotherList = new ArrayList<>();
+        ArrayList<String> anotherListOfNames = new ArrayList<>();
         Random randNum = new Random();
         for (int i = 0; i <absences.size() ; i++) {
             int randName = randNum.nextInt(5);
-            anotherList.add(names.get(randName));
+            anotherListOfNames.add(names.get(randName));
         }
-        System.out.println("new list: " + anotherList);
+        System.out.println("new list: " + anotherListOfNames);
 
-        //
-
-
-
-
+        //Shuffle the names using a user-defined shuffle function.
+        shuffleString(anotherListOfNames);
+        System.out.println("Shuffled names: " + anotherListOfNames);
 
 
 
@@ -144,6 +142,24 @@ public class Main {
 
 
 
+
+
+
+
+
+
+
+    }
+
+    private static void shuffleString(ArrayList<String> anotherListOfNames) {
+        Random rand = new Random();
+        for (int i = 0; i < anotherListOfNames.size() ; i++) {
+            int randInt = rand.nextInt(anotherListOfNames.size());
+            String temp = anotherListOfNames.get(randInt);
+            anotherListOfNames.set(randInt, anotherListOfNames.get(i));
+            anotherListOfNames.set(i, temp);
+
+        }
 
     }
 
