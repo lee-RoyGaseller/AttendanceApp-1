@@ -113,6 +113,10 @@ public class Main {
         names.add("Brown");
         System.out.println(names);
 
+        //Shuffle the names using a user-defined shuffle function.
+        shuffleString(names);
+        System.out.println("Shuffled names: " + names);
+
         //Using the 5 names, create another list that has the same size as the absences list.
         ArrayList<String> anotherListOfNames = new ArrayList<>();
         Random randNum = new Random();
@@ -122,9 +126,8 @@ public class Main {
         }
         System.out.println("new list: " + anotherListOfNames);
 
-        //Shuffle the names using a user-defined shuffle function.
-        shuffleString(anotherListOfNames);
-        System.out.println("Shuffled names: " + anotherListOfNames);
+        //Were all 5 names used at least once?
+        wereAllNamesUsed(names,anotherListOfNames);
 
 
 
@@ -149,6 +152,43 @@ public class Main {
 
 
 
+
+
+
+
+    }
+
+    private static void wereAllNamesUsed(ArrayList<String> names, ArrayList<String> anotherListOfNames) {
+        ArrayList<Boolean> check = new ArrayList<Boolean>();
+        for (int i = 0; i < names.size() ; i++) {
+            for (int j = 0; j <anotherListOfNames.size() ; j++) {
+                if (!names.get(i).equals(anotherListOfNames.get(j))){
+                    check.add(i,false);
+                }
+                else {
+                    check.add(i,true);
+                }
+
+            }
+
+        }
+        boolean allUsed = false;
+        for (int i = 0; i <check.size() ; i++) {
+            if (check.get(i)!=true){
+                allUsed = false;
+
+            }
+            else{
+                allUsed = true;
+            }
+
+        }
+        if (allUsed == true){
+            System.out.println("not, not every name was used in the new array");
+        }
+        else {
+            System.out.println("yes, all names were used in the new array");
+        }
     }
 
     private static void shuffleString(ArrayList<String> anotherListOfNames) {
