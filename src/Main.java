@@ -128,6 +128,15 @@ public class Main {
 
         //Were all 5 names used at least once?
         wereAllNamesUsed(names,anotherListOfNames);
+        
+        //What are the names of the students with perfect attendance?
+        System.out.println("absences: " +absences);
+        System.out.println("names: " + anotherListOfNames);
+        for (int i = 0; i < absences.size(); i++){
+            if (absences.get(i) ==0 ){
+                System.out.println(anotherListOfNames.get(i)+ " has perfect attendance");
+            }
+        }
 
 
 
