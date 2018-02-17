@@ -1,3 +1,4 @@
+import java.time.LocalDate;
 import java.util.*;
 
 public class Main {
@@ -137,6 +138,12 @@ public class Main {
                 System.out.println(anotherListOfNames.get(i)+ " has perfect attendance");
             }
         }
+
+        //Generate today's date and output it.
+        LocalDate today = LocalDate.now();
+        System.out.println("today is "+ today);
+
+
 
 
 
