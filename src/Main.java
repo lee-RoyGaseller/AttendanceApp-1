@@ -143,6 +143,8 @@ public class Main {
         LocalDate today = LocalDate.now();
         System.out.println("today is "+ today);
 
+        //how many days have I been alive?
+        System.out.println("you've been alive for " +howManyDaysSince(1999,07,10) + " days.");
 
 
 
@@ -172,6 +174,20 @@ public class Main {
 
 
 
+
+
+
+
+
+    }
+
+    private static int howManyDaysSince(int year, int month, int day) {
+        LocalDate birthday = LocalDate.of(year,month,day);
+        LocalDate today = LocalDate.now();
+        int dayDiff = today.getDayOfYear()- birthday.getDayOfYear();
+        int yearDif = today.compareTo(birthday);
+        int daysSince = ((yearDif*365)-Math.abs(dayDiff)+5) ;
+        return daysSince;
     }
 
     private static void wereAllNamesUsed(ArrayList<String> names, ArrayList<String> anotherListOfNames) {
