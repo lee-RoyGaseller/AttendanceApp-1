@@ -153,12 +153,43 @@ public class Main {
         ArrayList<String> personWithLeastAmountOfAbsences = leastAmountOfAbsences(names,absences);
         System.out.println("the people with the least amount of absences " + personWithLeastAmountOfAbsences);
 
+       //What are the names of students who have the longest number of days since an absence?
+        System.out.println(anotherListOfNames);
+        System.out.println("the students who have the longest number of days since an absence are "+ longestDaysSinceLastAbscence(anotherListOfNames,dateArrayList));
 
 
 
-            
-            
 
+
+
+    }
+
+    private static ArrayList<String> longestDaysSinceLastAbscence(ArrayList<String> names,ArrayList<LocalDate> dates){
+        ArrayList<String> longestSinceAbsence = new ArrayList<>();
+        LocalDate today = LocalDate.now();
+        int longestDif = diffDays(today,dates.get(0));
+        int index = 0;
+        for (int i = 0; i <dates.size(); i++) {
+            int dif = diffDays(today,dates.get(i));
+            if (dif>longestDif){
+                longestDif = dif;
+                index = i;
+            }
+        }
+        for (int i = 0; i < dates.size(); i++) {
+            int longestCheck = diffDays(today,dates.get(i));
+            if(longestCheck == longestDif){
+                longestSinceAbsence.add(names.get(i));
+            }
+        }
+        return longestSinceAbsence;
+
+
+    }
+
+    private static int diffDays(LocalDate date1, LocalDate date2) {
+        int diff = date1.getDayOfYear()-date2.getDayOfYear();
+        return diff;
     }
 
     private static ArrayList<String> leastAmountOfAbsences(ArrayList<String> names, ArrayList<Integer> absences) {
