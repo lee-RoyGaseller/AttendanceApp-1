@@ -146,7 +146,7 @@ public class Main {
         //how many days have I been alive?
         System.out.println("you've been alive for " +howManyDaysSince(1999,07,10) + " days.");
 
-        //Create a list of LocalDate objects.
+        //Create a list of LocalDate objects
         ArrayList<LocalDate> dateArrayList = createADateArrayList(absences.size());
         System.out.println("The dates are " + dateArrayList);
 
