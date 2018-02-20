@@ -146,39 +146,24 @@ public class Main {
         //how many days have I been alive?
         System.out.println("you've been alive for " +howManyDaysSince(1999,07,10) + " days.");
 
+        //Create a list of LocalDate objects.
+        ArrayList<LocalDate> dateArrayList = createADateArrayList(absences.size());
+        System.out.println("The dates are " + dateArrayList);
 
 
+            
+            
 
+    }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    private static ArrayList<LocalDate>  createADateArrayList(int size) {
+        ArrayList<LocalDate> dates = new ArrayList<>();
+        Random rand = new Random();
+        LocalDate today = LocalDate.now();
+        for (int i = 0; i < size ; i++) {
+            dates.add(today.minusDays(rand.nextInt(21)));
+        }
+        return dates;
     }
 
     private static int howManyDaysSince(int year, int month, int day) {
