@@ -164,7 +164,7 @@ public class Main {
         int range = absenceRange(dateArrayList);
         System.out.println("The range of absences is " +range);
 
-        //What are the indexes of the students who have  [X] absence date?
+        //What are the indexes of the students who have [X] absence date?
         System.out.println("students who were absent on this date " + whoWasAbsentOnThisDate(dateArrayList,LocalDate.of(2018,02,18),anotherListOfNames));
 
 
