@@ -150,18 +150,35 @@ public class Main {
         ArrayList<LocalDate> dateArrayList = createADateArrayList(absences.size());
         System.out.println("The dates are " + dateArrayList);
         //What are the names of the students with the fewest absences?
-        ArrayList<String> personWithLeastAmountOfAbsences = leastAmountOfAbsences(names,absences);
+        ArrayList<String> personWithLeastAmountOfAbsences = leastAmountOfAbsences(anotherListOfNames,absences);
         System.out.println("the people with the least amount of absences " + personWithLeastAmountOfAbsences);
 
        //What are the names of students who have the longest number of days since an absence?
         System.out.println(anotherListOfNames);
         System.out.println("the students who have the longest number of days since an absence are "+ longestDaysSinceLastAbscence(anotherListOfNames,dateArrayList));
 
+        //What is the range of absence dates?
+        int range = absenceRange(dateArrayList);
+        System.out.println("The of absences is " +range);
 
 
 
 
 
+
+    }
+
+    private static int absenceRange(ArrayList<LocalDate> dates){
+        LocalDate today = LocalDate.now();
+        int longestDif = diffDays(today,dates.get(0));
+        for (int i = 0; i < dates.size(); i++) {
+            int dif = diffDays(today, dates.get(i));
+            if(dif>longestDif){
+                longestDif = dif;
+            }
+
+        }
+        return longestDif;
     }
 
     private static ArrayList<String> longestDaysSinceLastAbscence(ArrayList<String> names,ArrayList<LocalDate> dates){
