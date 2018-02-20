@@ -149,11 +149,33 @@ public class Main {
         //Create a list of LocalDate objects
         ArrayList<LocalDate> dateArrayList = createADateArrayList(absences.size());
         System.out.println("The dates are " + dateArrayList);
+        //What are the names of the students with the fewest absences?
+        ArrayList<String> personWithLeastAmountOfAbsences = leastAmountOfAbsences(names,absences);
+        System.out.println("the people with the least amount of absences " + personWithLeastAmountOfAbsences);
+
+
 
 
             
             
 
+    }
+
+    private static ArrayList<String> leastAmountOfAbsences(ArrayList<String> names, ArrayList<Integer> absences) {
+        ArrayList<String> leastAbsences = new ArrayList<>();
+        int min = absences.get(0);
+
+        for (int i = 1; i <absences.size() ; i++) {
+            if (absences.get(i)<min){
+                min = absences.get(i);
+            }
+        }
+        for (int i = 0; i <absences.size() ; i++) {
+            if(absences.get(i)==min){
+                leastAbsences.add(names.get(absences.get(i)));
+            }
+        }
+        return leastAbsences;
     }
 
     private static ArrayList<LocalDate>  createADateArrayList(int size) {
