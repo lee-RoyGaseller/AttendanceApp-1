@@ -139,6 +139,9 @@ public class Main {
             }
         }
 
+        //What are the names of the students who have FE'd some course?
+        System.out.println("Students who have Fe'd a course " + whoFedACourse(anotherListOfNames,absences, 4));
+
         //Generate today's date and output it.
         LocalDate today = LocalDate.now();
         System.out.println("today is "+ today);
@@ -159,13 +162,41 @@ public class Main {
 
         //What is the range of absence dates?
         int range = absenceRange(dateArrayList);
-        System.out.println("The of absences is " +range);
+        System.out.println("The range of absences is " +range);
+
+        //What are the indexes of the students who have [X] absence date?
+        System.out.println("students who were absent on this date " + whoWasAbsentOnThisDate(dateArrayList,LocalDate.of(2018,02,18),anotherListOfNames));
 
 
 
 
 
 
+
+
+
+    }
+
+    private static Set<String> whoFedACourse(ArrayList<String> anotherListOfNames, ArrayList<Integer> absences, int meetsPerWeek) {
+        Set<String> studentsWhoFed = new HashSet<>();
+        for (int i = 0; i < absences.size() ; i++) {
+            if(absences.get(i) >= meetsPerWeek+2){
+                studentsWhoFed.add(anotherListOfNames.get(i));
+            }
+
+        }
+        return studentsWhoFed;
+    }
+
+    private static ArrayList<String> whoWasAbsentOnThisDate (ArrayList<LocalDate> dates, LocalDate date, ArrayList<String> names){
+        ArrayList<String> studentsWhoHadThatDate = new ArrayList<>();
+        for (int i = 0; i <dates.size(); i++) {
+            if (dates.get(i) == date){
+                studentsWhoHadThatDate.add(names.get(i));
+            }
+
+        }
+        return studentsWhoHadThatDate;
     }
 
     private static int absenceRange(ArrayList<LocalDate> dates){
