@@ -143,7 +143,8 @@ public class Main {
         System.out.println("Students who have Fe'd a course " + whoFedACourse(anotherListOfNames,absences, 4));
 
         //Which courses did [name] fe?
-        System.out.println(name+"fe'd these courses " +whichCoursesDidNameFe("Lee-Roy",anotherListOfNames,absences,4));
+        System.out.print("Enter name you want to check if Fe'd: ");
+        System.out.println("They fe'd these courses " +whichCoursesDidNameFe("Lee-Roy",anotherListOfNames,absences,4));
 
 
         //Generate today's date and output it.
