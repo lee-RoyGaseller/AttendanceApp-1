@@ -142,6 +142,10 @@ public class Main {
         //What are the names of the students who have FE'd some course?
         System.out.println("Students who have Fe'd a course " + whoFedACourse(anotherListOfNames,absences, 4));
 
+        //Which courses did [name] fe?
+        System.out.println(name+"fe'd these courses " +whichCoursesDidNameFe("Lee-Roy",anotherListOfNames,absences,4));
+
+
         //Generate today's date and output it.
         LocalDate today = LocalDate.now();
         System.out.println("today is "+ today);
@@ -167,7 +171,7 @@ public class Main {
         //What are the indexes of the students who have [X] absence date?
         System.out.println("students who were absent on this date " + whoWasAbsentOnThisDate(dateArrayList,LocalDate.of(2018,02,18),anotherListOfNames));
 
-        //What are the indexes of the students who have the same absence date?
+        //What are the indexes of the students who have the same absence date
         Map<LocalDate,Integer> datesAndIndexes = new HashMap<>();
         for (int i = 0; i <dateArrayList.size() ; i++) {
             datesAndIndexes.put(dateArrayList.get(i),i);
@@ -188,6 +192,17 @@ public class Main {
 
 
 
+    }
+
+    private static ArrayList<Integer> whichCoursesDidNameFe(String name, ArrayList<String> anotherListOfNames, ArrayList<Integer> absences, int meetsPerWeek) {
+        ArrayList<Integer> whichCoursesFed = new ArrayList<>();
+        for (int i = 0; i < absences.size(); i++) {
+            if(anotherListOfNames.get(i).equals(name) && absences.get(i) >= meetsPerWeek+2){
+                whichCoursesFed.add(i);
+            }
+
+        }
+        return whichCoursesFed;
     }
 
     private static ArrayList<Integer> findIndex(LocalDate date, ArrayList<LocalDate> dateArrayList) {
