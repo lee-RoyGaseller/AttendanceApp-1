@@ -167,6 +167,16 @@ public class Main {
         //What are the indexes of the students who have [X] absence date?
         System.out.println("students who were absent on this date " + whoWasAbsentOnThisDate(dateArrayList,LocalDate.of(2018,02,18),anotherListOfNames));
 
+        //What are the indexes of the students who have the same absence date?
+        Map<LocalDate,Integer> datesAndIndexes = new HashMap<>();
+        for (int i = 0; i <dateArrayList.size() ; i++) {
+            datesAndIndexes.put(dateArrayList.get(i),i);
+
+        }
+
+        System.out.println("dates and indexes map "+ datesAndIndexes);
+
+        System.out.println("same date check "+sameDate(datesAndIndexes,dateArrayList));
 
 
 
@@ -175,6 +185,31 @@ public class Main {
 
 
 
+
+
+
+    }
+
+    private static ArrayList<Integer> findIndex(LocalDate date, ArrayList<LocalDate> dateArrayList) {
+        ArrayList<Integer> indexes = new ArrayList<>();
+        for (int i = 0; i <dateArrayList.size() ; i++) {
+            if(dateArrayList.get(i).equals(date)){
+                indexes.add(i);
+            }
+
+
+        }
+        return indexes;
+    }
+
+    private static Map<LocalDate,ArrayList<Integer>> sameDate(Map<LocalDate, Integer> datesAndIndexes, ArrayList<LocalDate> dates) {
+        Map<LocalDate,ArrayList<Integer>> sameDates = new HashMap<>();
+        for (Map.Entry<LocalDate,Integer> entry:datesAndIndexes.entrySet() ) {
+            LocalDate key = entry.getKey();
+            ArrayList<Integer> temp= findIndex(key,dates);
+            sameDates.put(key,temp);
+        }
+        return sameDates;
     }
 
     private static Set<String> whoFedACourse(ArrayList<String> anotherListOfNames, ArrayList<Integer> absences, int meetsPerWeek) {
